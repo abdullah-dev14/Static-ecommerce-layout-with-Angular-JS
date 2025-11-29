@@ -1,0 +1,12 @@
+.carousel .carousel-item {
+  height: 100vh;              /* Full viewport height */
+  overflow: hidden;           /* Hide excess */
+  position: relative;
+}
+
+.carousel .carousel-item img {
+  width: 100%;                /* Fill width */
+  height: 100%;               /* Fill height */
+  object-fit: cover;          /* Fill area, crop excess */
+  object-position: top;       /* Keep top of image visible, crop bottom */
+}
