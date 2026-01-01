@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :host {
   display: block;
   min-height: 100vh;
@@ -22,3 +23,143 @@
   z-index: -1;
 }
  
+=======
+/* ============================= */
+/* PARROT THEME CONTACT SECTION  */
+/* ============================= */
+.parrot-theme {
+  background: url('https://plus.unsplash.com/premium_photo-1666777247125-c8915ef41287?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') 
+              center/cover no-repeat;
+  padding: 30px;
+  border-radius: 10px;
+  position: relative;
+  color: var(--text-light);
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0,128,0,0.2);
+  animation: bgFadeIn 1.4s ease-out forwards;
+}
+
+/* Overlay */
+.parrot-theme::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: var(--overlay-dark);
+  border-radius: 10px;
+  z-index: 1;
+  animation: overlayFade 1.8s ease-out forwards;
+}
+
+/* Content above overlay */
+.parrot-theme * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Headings */
+.title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  text-align: center;
+  margin-bottom: 0.75rem;
+  color: var(--text-light);
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-align: center;
+  margin: 20px 0 10px;
+}
+
+/* Text & Contact Info */
+.text,
+.contact-info li {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--text-soft);
+  text-align: center;
+}
+
+.contact-info {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0 2rem;
+}
+
+.contact-info li {
+  padding: 10px 14px;
+  margin: 5px 0;
+  background: rgba(40, 167, 69, 0.18);
+  border-left: 4px solid var(--green-main);
+  border-radius: 8px;
+}
+
+/* Links */
+.parrot-theme a {
+  color: var(--text-muted);
+  text-decoration: underline;
+  transition: color var(--transition);
+}
+
+.parrot-theme a:hover {
+  color: var(--text-light);
+}
+
+/* Form Inputs */
+.parrot-theme .form-control {
+  background-color: var(--form-bg);
+  border-radius: 10px;
+  border: none;
+  padding: 12px 14px;
+  color: #155724;
+  font-size: 0.95rem;
+  transition: box-shadow var(--transition), transform var(--transition);
+}
+
+.parrot-theme .form-control::placeholder {
+  color: #4b7f5c;
+}
+
+.parrot-theme .form-control:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.6);
+  transform: scale(1.02);
+}
+
+/* Send Button */
+.parrot-theme .btn-success {
+  background: linear-gradient(45deg, var(--green-main), var(--green-accent));
+  border: none;
+  font-weight: 700;
+  padding: 10px 30px;
+  border-radius: 30px;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.parrot-theme .btn-success:hover {
+  transform: translateY(-2px) scale(1.07);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+}
+
+/* ============================= */
+/* ANIMATIONS                    */
+/* ============================= */
+@keyframes bgFadeIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes overlayFade {
+  0% { opacity: 0; }
+  100% { opacity: 0.4; }
+}
+>>>>>>> c9ec29d (update data)

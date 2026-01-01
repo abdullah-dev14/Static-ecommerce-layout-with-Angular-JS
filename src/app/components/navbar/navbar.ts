@@ -9,3 +9,7 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./navbar.css']
 })
 export class Navbar {}
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> c9ec29d (update data)

@@ -1,0 +1,172 @@
+/* ============================= */
+/* PARROT-THEMED SUBSCRIPTION BANNER */
+/* ============================= */
+.subscription-banner {
+  background:
+    linear-gradient(rgba(0, 0, 0, 0.35), rgba(0,0,0,0.35)),
+    url("https://images.unsplash.com/photo-1552728089-57bdde30beb3?q=80&w=725&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") 
+    center/cover no-repeat;
+  padding: 100px 20px;
+  border-radius: 20px;
+  position: relative;
+  color: #004d00; /* dark green text */
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+/* Feather overlay for parrot theme */
+.subscription-banner::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(120deg, rgba(46,204,113,0.15) 0%, transparent 40%),
+    linear-gradient(245deg, rgba(168,255,191,0.12) 0%, transparent 45%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 6px, transparent 6px, transparent 14px);
+  border-radius: 20px;
+}
+
+/* Content wrapper */
+.subscription-banner-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 25px;
+  border-radius: 12px;
+  background-color: rgba(255,255,255,0.0);
+}
+
+/* Heading */
+.subscription-banner h1 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #a8ffbf;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Paragraph text */
+.subscription-banner p {
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  line-height: 1.6;
+  color: #d4f7c4;
+}
+
+/* Input group */
+.subscription-banner .input-group {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.subscription-banner input {
+  border-radius: 50px;
+  padding: 14px 20px;
+  border: 2px solid #33cc33;
+  flex: 1;
+  min-width: 200px;
+  background-color: rgba(255,255,255,0.85);
+  color: #155724;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.subscription-banner input::placeholder {
+  color: rgba(21,87,36,0.7);
+}
+
+.subscription-banner input:focus {
+  outline: none;
+  box-shadow: 0 0 12px rgba(46,204,113,0.6);
+  transform: scale(1.02);
+}
+
+/* Parrot-themed CTA button */
+.subscription-banner button {
+  border-radius: 50px;
+  padding: 14px 28px;
+  border: none;
+  font-weight: 700;
+  background: linear-gradient(135deg, #2ecc71, #1e8449, #66ff66);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+}
+
+.subscription-banner button:hover {
+  background: linear-gradient(135deg, #66ff66, #33cc33, #00b300);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(46,204,113,0.5);
+}
+
+/* Wing icon inside button */
+.subscription-banner button .wing-icon {
+  display: inline-block;
+  transform-origin: center;
+  animation: wingFlap 2s ease-in-out infinite;
+}
+
+@keyframes wingFlap {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(10deg) scale(1.05); }
+  50% { transform: rotate(-8deg) scale(1.05); }
+  75% { transform: rotate(6deg); }
+}
+
+/* Social proof text */
+.subscription-banner .social-proof {
+  color: #a8ffbf;
+  font-weight: 600;
+  margin-top: 10px;
+  font-size: 0.95rem;
+}
+
+/* Privacy reassurance */
+.subscription-banner small {
+  display: block;
+  font-size: 0.9rem;
+  color: #33cc33;
+  margin-top: 5px;
+}
+
+/* Urgency / offer text */
+.subscription-banner .small.text-warning {
+  color: #228B22;
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+/* Floating cockatoo / feather icons */
+.floating-cockatoo,
+.floating-feather {
+  width: 40px;
+  position: absolute;
+  animation: float 5s infinite ease-in-out;
+  z-index: 1;
+}
+
+.floating-cockatoo { top: 5%; left: 5%; }
+.floating-feather { top: 20%; right: 5%; animation-duration: 6s; }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(10deg); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .subscription-banner h1 { font-size: 2rem; }
+  .subscription-banner p { font-size: 1rem; }
+  .subscription-banner input,
+  .subscription-banner button { width: 100%; }
+}

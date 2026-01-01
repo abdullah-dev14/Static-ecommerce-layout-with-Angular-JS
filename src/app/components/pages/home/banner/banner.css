@@ -1,12 +1,112 @@
+<<<<<<< HEAD
 .carousel .carousel-item {
   height: 100vh;              /* Full viewport height */
   overflow: hidden;           /* Hide excess */
+=======
+/* -------------------------------------------------- */
+/* FULLSCREEN CAROUSEL (YOUR CODE + OPTIMIZED)        */
+/* -------------------------------------------------- */
+
+.carousel .carousel-item {
+  height: 100vh;               /* Fullscreen banner */
+  overflow: hidden;
+>>>>>>> c9ec29d (update data)
   position: relative;
 }
 
 .carousel .carousel-item img {
+<<<<<<< HEAD
   width: 100%;                /* Fill width */
   height: 100%;               /* Fill height */
   object-fit: cover;          /* Fill area, crop excess */
   object-position: top;       /* Keep top of image visible, crop bottom */
+=======
+  width: 100%;
+  height: 100%;
+  object-fit: cover;           /* Crops sides if needed */
+  object-position: top;        /* Keeps top visible */
+  transition: transform 0.8s ease;
+}
+
+/* Zoom image on hover */
+.carousel .carousel-item:hover img {
+  transform: scale(1.10);
+}
+
+/* -------------------------------------------------- */
+/* CAPTION ANIMATION                                  */
+/* -------------------------------------------------- */
+
+.carousel-caption {
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transform: translateY(25px);
+  opacity: 0;
+  text-shadow: 2px 2px 10px rgba(0,0,0,0.6);
+}
+
+.carousel-item.active .carousel-caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.carousel-caption h5 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.carousel-caption p {
+  font-size: 1.3rem;
+}
+
+/* -------------------------------------------------- */
+/* NAVIGATION ARROW EFFECTS                            */
+/* -------------------------------------------------- */
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0 0 6px rgba(0,0,0,0.4));
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  transform: scale(1.3);
+  filter: brightness(1.3);
+}
+
+/* -------------------------------------------------- */
+/* INDICATOR BUTTON EFFECTS                            */
+/* -------------------------------------------------- */
+
+.carousel-indicators button {
+  width: 12px;
+  height: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.carousel-indicators button:hover {
+  transform: scale(1.3);
+  background-color: #28a745;
+}
+
+.carousel-indicators .active {
+  background-color: #28a745 !important;
+  transform: scale(1.45);
+}
+
+/* -------------------------------------------------- */
+/* CAROUSEL CONTAINER SHADOW                           */
+/* -------------------------------------------------- */
+
+#carouselExampleCaptions {
+  border-radius: 0;            /* Fullscreen: no radius */
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(0,0,0,0.25);
+}
+
+#carouselExampleCaptions:hover {
+  box-shadow: 0 18px 48px rgba(0,0,0,0.35);
+>>>>>>> c9ec29d (update data)
 }

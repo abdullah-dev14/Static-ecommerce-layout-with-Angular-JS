@@ -1,0 +1,290 @@
+/* ============================= */
+/* PARROT THEME (Background + Overlay + Feather Gradient + Animation) */
+/* ============================= */
+.parrot-theme {
+  --parrot-green: #2ecc71;
+  --parrot-lime: #a8ffbf;
+  --parrot-dark: #145a32;
+  --parrot-glass: rgba(46, 204, 113, 0.18);
+
+  background:
+    linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+    url('https://images.unsplash.com/photo-1644609019479-ed6e3e46cb5b?q=80&w=687&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+
+  padding: 32px;
+  border-radius: 14px;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.45);
+  position: relative;
+  color: #f0fff4;
+
+  animation: bgFadeIn 1.2s ease-out forwards;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* Feather gradient overlay */
+.parrot-theme::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(115deg, rgba(46,204,113,0.18) 0%, transparent 40%),
+    linear-gradient(245deg, rgba(168,255,191,0.12) 0%, transparent 45%),
+    repeating-linear-gradient(135deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 6px, transparent 6px, transparent 14px);
+}
+
+/* Ensure content above feather layer */
+.parrot-theme > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* ============================= */
+/* TEXT & TYPOGRAPHY             */
+/* ============================= */
+.parrot-theme .title {
+  font-family: 'Poppins', system-ui, sans-serif;
+  font-weight: 800;
+  color: var(--parrot-lime);
+  letter-spacing: 0.5px;
+  text-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  font-size: clamp(2rem, 5vw, 2.75rem);
+}
+
+.parrot-theme .subtitle {
+  color: #c7f9d4;
+  margin-top: 16px;
+  font-weight: 600;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+}
+
+.parrot-theme .text,
+.parrot-theme .contact-info li {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #ecfff2;
+}
+
+.parrot-theme a {
+  color: var(--parrot-lime);
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+}
+
+.parrot-theme a::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--parrot-lime);
+  transition: width 0.3s ease;
+}
+
+.parrot-theme a:hover::after {
+  width: 100%;
+}
+
+/* ============================= */
+/* FORM CONTROLS                  */
+/* ============================= */
+.parrot-theme .form-control {
+  background: rgba(255,255,255,0.85);
+  color: var(--parrot-dark);
+  border-radius: 8px;
+  border: none;
+  padding: 10px 12px;
+  transition: box-shadow 0.3s ease;
+}
+
+.parrot-theme .form-control::placeholder {
+  color: rgba(21,87,36,0.7);
+}
+
+.parrot-theme .form-control:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.4);
+  background: rgba(255,255,255,0.95);
+}
+
+/* ============================= */
+/* PARROT CTA BUTTON             */
+/* ============================= */
+.parrot-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: linear-gradient(135deg, #2ecc71, #1e8449);
+  color: #0b3d1f;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 1rem;
+  letter-spacing: 0.4px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 10px 25px rgba(46,204,113,0.45), inset 0 0 0 rgba(255,255,255,0);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.parrot-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.35) 50%, transparent 80%);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.parrot-cta:hover::before {
+  transform: translateX(100%);
+}
+
+.parrot-cta:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(46,204,113,0.65);
+}
+
+.parrot-cta:active {
+  transform: translateY(-1px);
+}
+
+/* ============================= */
+/* WING FLAP ICON ANIMATION      */
+/* ============================= */
+.wing-icon {
+  display: inline-block;
+  transform-origin: center;
+  animation: wingFlap 2.2s ease-in-out infinite;
+}
+
+.parrot-cta:hover .wing-icon,
+.footer-social a:hover .wing-icon {
+  animation-duration: 0.9s;
+}
+
+@keyframes wingFlap {
+  0%   { transform: rotate(0deg) scale(1); }
+  15%  { transform: rotate(12deg) scale(1.05); }
+  30%  { transform: rotate(-10deg) scale(1.05); }
+  45%  { transform: rotate(8deg); }
+  60%  { transform: rotate(-6deg); }
+  100% { transform: rotate(0deg) scale(1); }
+}
+
+/* ============================= */
+/* ANIMATIONS                    */
+/* ============================= */
+@keyframes bgFadeIn {
+  from { opacity: 0; transform: scale(1.05); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ============================= */
+/* FOOTER SECTION                */
+/* ============================= */
+.footer {
+  background: linear-gradient(135deg, #1e7e34, #0b3d1f);
+  color: #eafff0;
+  padding: 60px 20px 40px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 0.9s ease forwards;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer h5,
+.footer h6 {
+  color: var(--parrot-lime);
+  margin-bottom: 16px;
+  text-shadow: 0 3px 10px rgba(0,0,0,0.4);
+}
+
+/* Footer links */
+.footer a {
+  color: #eafff0;
+  font-weight: 500;
+  display: inline-block;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--parrot-lime);
+  transform: translateX(6px);
+}
+
+.footer .social-icons a img {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+}
+
+.footer .social-icons a img:hover {
+  transform: scale(1.25) translateY(-4px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+}
+
+.footer .special-offer {
+  background: var(--parrot-glass);
+  color: var(--parrot-lime);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-weight: 700;
+  animation: pulseGlow 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(46,204,113,0); }
+  50% { box-shadow: 0 0 18px rgba(46,204,113,0.6); }
+}
+
+/* Footer icon (crow/parrot) */
+.footer-crow {
+  color: var(--parrot-lime);
+  transition: transform 0.3s ease;
+}
+
+.footer-crow:hover {
+  transform: scale(1.25) rotate(-8deg);
+}
+
+/* ============================= */
+/* FOOTER ANIMATIONS             */
+/* ============================= */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(25px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================= */
+/* RESPONSIVE                    */
+/* ============================= */
+@media (max-width: 991px) {
+  .footer form { justify-content: center; }
+  .footer .text-md-start, .footer .text-md-end {
+    text-align: center !important;
+    margin-bottom: 20px;
+  }
+  .footer .social-icons { justify-content: center; }
+}
+
+@media (max-width: 768px) {
+  .parrot-theme { padding: 24px; }
+  .footer { padding: 45px 15px 30px; }
+}
+
+@media (max-width: 575px) {
+  .footer form input { width: 100% !important; margin-bottom: 10px; }
+  .footer .social-icons a img { width: 32px; height: 32px; }
+}

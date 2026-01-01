@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <div class="container mt-4">
   <div class="row g-4">
 
@@ -139,3 +140,30 @@
 
   </div>
 </div>
+=======
+<div class="featured-heading">
+  <h2>Featured Parrots</h2>
+</div>
+
+<div class="search-box">
+  <input type="text" placeholder="Search parrots..." [(ngModel)]="searchText" />
+  <button (click)="searchText=''">Clear</button>
+</div>
+
+<div class="parrot-cards">
+  <div class="card" *ngFor="let parrot of filteredParrots" [ngStyle]="{'border': '3px solid ' + parrot.borderColor}">
+    
+    <img [src]="parrot.img" alt="{{ parrot.name }}" class="card-img-top">
+    <div class="card-body">
+      <h3 class="card-title" [innerHTML]="highlightMatch(parrot.name)"></h3>
+      <p><strong>Diet:</strong> <span [innerHTML]="highlightMatch(parrot.diet)"></span></p>
+      <p><strong>Environment:</strong> <span [innerHTML]="highlightMatch(parrot.habitat)"></span></p>
+      <p><em [innerHTML]="highlightMatch(parrot.nickname + ' | ' + parrot.species)"></em></p>
+      <p class="card-price">$ {{ parrot.price }}</p>
+      <button class="btn-description">Description</button>
+      <a href="#" class="btn-buy">Buy Now</a>
+    </div>
+
+  </div>
+</div>
+>>>>>>> c9ec29d (update data)
